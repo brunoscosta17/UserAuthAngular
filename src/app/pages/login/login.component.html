@@ -1,0 +1,32 @@
+<div class="login-container">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="login-box">
+    <img
+      src="assets/angular-logo-red.svg"
+      alt="Angular Logo"
+      class="angular-logo"
+    />
+
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+    </div>
+
+    <button type="submit" [disabled]="loading">Login</button>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+
+    <p class="link-action">
+      Don’t have an account?
+      <a [routerLink]="'/register'">Create one</a>
+    </p>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </form>
+</div>

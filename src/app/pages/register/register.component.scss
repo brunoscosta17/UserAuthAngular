@@ -1,0 +1,99 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f2f5;
+}
+
+.register-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      &:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #2ecc71;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    &:hover {
+      background: #27ae60;
+    }
+    &:disabled {
+      background: #95a5a6;
+      cursor: not-allowed;
+    }
+  }
+
+  .toast {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+
+  .success {
+    background: #eafaf1;
+    color: #27ae60;
+  }
+
+  .error {
+    background: #fdecea;
+    color: #c0392b;
+  }
+
+  .link-action {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+
+  a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.25rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #2c3e50;
+    }
+  }
+}
+
+}

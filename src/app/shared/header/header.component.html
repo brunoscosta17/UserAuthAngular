@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="logo">AngularApp</div>
+
+  <div class="user-area">
+    <span class="user-info">
+      <span class="material-icons-outlined">account_circle</span>
+      {{ user()?.name }}
+    </span>
+
+    <button (click)="logout()">
+      <span class="material-icons-outlined">logout</span>
+      Logout
+    </button>
+  </div>
+</header>
