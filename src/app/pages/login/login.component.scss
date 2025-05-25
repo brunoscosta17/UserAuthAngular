@@ -46,7 +46,7 @@
       transition: border-color 0.2s;
 
       &:focus {
-        border-color: #3498db;
+        border-color: #c3002f;
         outline: none;
       }
     }
@@ -55,7 +55,7 @@
   button {
     width: 100%;
     padding: 0.75rem;
-    background: #3498db;
+    background: #c3002f;
     border: none;
     color: #fff;
     border-radius: 6px;
@@ -64,11 +64,11 @@
     transition: background 0.3s;
 
     &:hover {
-      background: #2980b9;
+      background: #dd0031;
     }
 
     &:disabled {
-      background: #95a5a6;
+      background: #e6a4ae;
       cursor: not-allowed;
     }
   }
@@ -80,19 +80,19 @@
   }
 
   .link-action {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.95rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
 
   a {
-    color: #3498db;
+    color: #c3002f;
     text-decoration: none;
     font-weight: 500;
     margin-left: 0.25rem;
     transition: color 0.2s;
 
     &:hover {
-      color: #2c3e50;
+      color: #dd0031;
     }
   }
 }
