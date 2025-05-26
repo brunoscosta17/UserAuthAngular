@@ -64,6 +64,11 @@
     cursor: pointer;
     transition: background 0.3s;
 
+    & span {
+      margin-left: 0.5rem;
+      color: #fff;
+    }
+
     &:hover {
       background: #dd0031;
     }
@@ -96,6 +101,6 @@
       color: #dd0031;
     }
   }
-}
+  }
 
 }

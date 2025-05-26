@@ -17,7 +17,11 @@
       <input type="password" formControlName="password" />
     </div>
 
-    <button type="submit" [disabled]="loading">Register</button>
+    <button type="submit" [disabled]="loading">
+      <span *ngIf="!loading">Register</span>
+      <span *ngIf="loading">Registering</span>
+      <span *ngIf="loading" class="spinner"></span>
+    </button>
 
     <p *ngIf="success" class="toast success">{{ success }}</p>
     <p *ngIf="error" class="toast error">{{ error }}</p>
@@ -26,8 +30,5 @@
       Already have an account?
       <a routerLink="/login">Log in</a>
     </p>
-
-    <p *ngIf="success" class="toast success">{{ success }}</p>
-    <p *ngIf="error" class="toast error">{{ error }}</p>
   </form>
 </div>

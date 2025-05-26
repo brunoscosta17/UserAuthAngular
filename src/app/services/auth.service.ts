@@ -1,8 +1,11 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 import { User } from '../models/user.model';
+import { AuthHttpService } from './auth-http.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  private readonly authHttp = inject(AuthHttpService);
   private readonly _user = signal<User | null>(null);
   readonly user = this._user.asReadonly();
   readonly isAuthenticated = computed(() => !!this._user());
@@ -40,23 +43,18 @@ export class AuthService {
   }
 
   refreshToken(): Promise<boolean> {
-    const user = this._user();
-    const refreshToken = localStorage.getItem('refreshToken');
-    const email = user?.email;
+  const user = this._user();
+  const refreshToken = localStorage.getItem('refreshToken');
+  const email = user?.email;
 
-    if (!refreshToken || !email) return Promise.resolve(false);
+  if (!refreshToken || !email) return Promise.resolve(false);
 
-    return fetch('https://localhost:7026/api/auth/refresh-token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, refreshToken })
+  return lastValueFrom(this.authHttp.refreshToken(email, refreshToken))
+    .then(data => {
+      this.login(data.user, data.token, data.refreshToken);
+      return true;
     })
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => {
-        if (!data?.token) return false;
-        this.login(data.user, data.token, data.refreshToken);
-        return true;
-      })
-      .catch(() => false);
-  }
+    .catch(() => false);
+}
+
 }
